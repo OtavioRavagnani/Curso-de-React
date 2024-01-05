@@ -1,11 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
 import { AppRoutes } from "./routes";
 import { ThemeProvider } from "@emotion/react";
-import { LitghtTheme } from "./shared/themes";
+import { DarkTheme } from "./shared/themes";
 
 export const App = () => {
   return (
-    <ThemeProvider theme={LitghtTheme}>
+    <ThemeProvider theme={DarkTheme}>
       <BrowserRouter>
         <AppRoutes />
       </BrowserRouter>
