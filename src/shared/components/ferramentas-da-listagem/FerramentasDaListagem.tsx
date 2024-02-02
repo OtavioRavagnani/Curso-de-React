@@ -1,6 +1,6 @@
 import { Box, Button, Icon, Paper, TextField, useTheme } from '@mui/material';
 
-import { Environment } from '../../environments/index';
+import { Environment } from '../../environment/index';
 
 
 interface IFerramentasDaListagemProps {

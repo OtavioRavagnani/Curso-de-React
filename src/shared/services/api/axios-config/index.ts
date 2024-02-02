@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { errorInterceptor } from './inteceptors/ErrorInterceptor';
 import { responseInterceptor} from './inteceptors/ResponseInterceptor';
-import { Environment } from '../../../environments/index';
+import { Environment } from '../../../environment/index';
 
 
 const Api = axios.create({
