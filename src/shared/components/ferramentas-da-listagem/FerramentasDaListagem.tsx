@@ -1,7 +1,6 @@
-import { Box, Button, Icon, Paper, TextField, useTheme } from '@mui/material';
+import { Box, Button, Icon, Paper, TextField, useTheme } from "@mui/material";
 
-import { Environment } from '../../environment/index';
-
+import { Environment } from "../../environment/index";
 
 interface IFerramentasDaListagemProps {
   textoDaBusca?: string;
@@ -12,13 +11,13 @@ interface IFerramentasDaListagemProps {
   aoClicarEmNovo?: () => void;
 }
 export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
-  textoDaBusca = '',
+  textoDaBusca = "",
   aoMudarTextoDeBusca,
   mostrarInputBusca = false,
   aoClicarEmNovo,
-  textoBotaoNovo = 'Novo',
+  textoBotaoNovo = "Novo",
   mostrarBotaoNovo = true,
-}) => {
+}: IFerramentasDaListagemProps) => {
   const theme = useTheme();
 
   return (
@@ -37,19 +36,23 @@ export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
           size="small"
           value={textoDaBusca}
           placeholder={Environment.INPUT_DE_BUSCA}
-          onChange={(e: { target: { value: string; }; }) => aoMudarTextoDeBusca?.(e.target.value)}
+          onChange={(e: { target: { value: string } }) =>
+            aoMudarTextoDeBusca?.(e.target.value)
+          }
         />
       )}
 
       <Box flex={1} display="flex" justifyContent="end">
         {mostrarBotaoNovo && (
           <Button
-            color='primary'
+            color="primary"
             disableElevation
-            variant='contained'
+            variant="contained"
             onClick={aoClicarEmNovo}
             endIcon={<Icon>add</Icon>}
-          >{textoBotaoNovo}</Button>
+          >
+            {textoBotaoNovo}
+          </Button>
         )}
       </Box>
     </Box>

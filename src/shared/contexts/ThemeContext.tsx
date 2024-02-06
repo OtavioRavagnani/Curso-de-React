@@ -1,6 +1,6 @@
-import { ThemeProvider } from '@emotion/react';
-import { Box } from '@mui/material';
-import { DarkTheme, LitghtTheme } from '../themes';
+import { ThemeProvider } from "@emotion/react";
+import { Box } from "@mui/material";
+import { DarkTheme, LitghtTheme } from "../themes";
 
 import {
   createContext,
@@ -8,10 +8,11 @@ import {
   useState,
   useMemo,
   useContext,
-} from 'react';
+  useEffect,
+} from "react";
 
 interface IThemeContextData {
-  themeName: 'light' | 'dark' | 'contrast';
+  themeName: "light" | "dark" | "contrast";
   toggleTheme: () => void;
 }
 
@@ -27,18 +28,23 @@ export const useAppThemeContext = () => {
 
 export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({
   children,
-}) => {
-  const [themeName, setThemeName] = useState<'light' | 'dark'>('light');
+}: IAppThemeProviderProps) => {
+  const [themeName, setThemeName] = useState<"light" | "dark" | any>(
+    localStorage.getItem("appTheme"),
+  );
 
   const toggleTheme = useCallback(() => {
-    setThemeName((oldThemeName) =>
-      oldThemeName === 'light' ? 'dark' : 'light'
-    );
+    if (themeName == "light") {
+      localStorage.setItem("appTheme", "dark");
+      setThemeName("dark");
+    } else {
+      localStorage.setItem("appTheme", "light");
+      setThemeName("light");
+    }
   }, []);
 
   const theme = useMemo(() => {
-    if (themeName === 'light') return LitghtTheme;
-
+    if (themeName == "light") return LitghtTheme;
     return DarkTheme;
   }, [themeName]);
 
