@@ -1,9 +1,10 @@
 {
-    "pessoas": [
-      {
-        "id":1,
-        "nome": "otavio",
-        "sobrenome": "ravagnani"
-      }
-    ]
-  }
+  "pessoas": [
+    {
+      "id": 1,
+      "cidadeId": 1,
+      "email": "Otaivio@email.com",
+      "nomeCompleto": "otavio ravagnani"
+    }
+  ]
+}
