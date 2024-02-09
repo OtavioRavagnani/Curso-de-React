@@ -29,7 +29,7 @@ export const ListagemDePessoas: React.FC = () => {
         <FerramentasDaListagem
           mostrarInputBusca
           textoDaBusca={busca}
-          textoBotaoNovo="Nova"
+          textoBotaoNovo="Novaaaaaaa"
           aoMudarTextoDeBusca={(texto) =>
             setSearchParams({ busca: texto }, { replace: true })
           }
