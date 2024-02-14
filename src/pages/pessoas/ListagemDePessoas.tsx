@@ -1,24 +1,29 @@
 /* eslint-disable react/no-children-prop */
-import { useMemo, useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 
+import { PessoasService } from "../../shared/services/api/pessoas/PessoasService";
 import { FerramentasDaListagem } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
-import { PessoasService } from "../../shared/services/api/pessoas/PessoasService";
+import { useDebounce } from "../../shared/hooks";
 
 export const ListagemDePessoas: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { debounce } = useDebounce(3000, true);
 
   const busca = useMemo(() => {
     return searchParams.get("busca") || "";
   }, [searchParams]);
 
   useEffect(() => {
-    PessoasService.getAll(1, busca).then((result) => {
-      if (result instanceof Error) {
-        alert(result.message);
-        return;
-      }
+    debounce(() => {
+      PessoasService.getAll(1, busca).then((result) => {
+        if (result instanceof Error) {
+          alert(result.message);
+        } else {
+          console.log(result);
+        }
+      });
     });
   }, [busca]);
 
@@ -29,7 +34,7 @@ export const ListagemDePessoas: React.FC = () => {
         <FerramentasDaListagem
           mostrarInputBusca
           textoDaBusca={busca}
-          textoBotaoNovo="Novaaaaaaa"
+          textoBotaoNovo="Nova"
           aoMudarTextoDeBusca={(texto) =>
             setSearchParams({ busca: texto }, { replace: true })
           }
