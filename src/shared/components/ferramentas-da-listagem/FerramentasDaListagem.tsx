@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Box, Button, Icon, Paper, TextField, useTheme } from "@mui/material";
 
-import { Environment } from "../../environment/index";
+import { Environment } from "../../environment";
 
 interface IFerramentasDaListagemProps {
   textoDaBusca?: string;
@@ -17,7 +18,7 @@ export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
   aoClicarEmNovo,
   textoBotaoNovo = "Novo",
   mostrarBotaoNovo = true,
-}: IFerramentasDaListagemProps) => {
+}) => {
   const theme = useTheme();
 
   return (
@@ -36,9 +37,7 @@ export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
           size="small"
           value={textoDaBusca}
           placeholder={Environment.INPUT_DE_BUSCA}
-          onChange={(e: { target: { value: string } }) =>
-            aoMudarTextoDeBusca?.(e.target.value)
-          }
+          onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)}
         />
       )}
 
