@@ -19,12 +19,6 @@
       "nomeCompleto": "Alfredo Silva"
     },
     {
-      "id": 6,
-      "cidadeId": 1,
-      "email": "Juca@gmail.com",
-      "nomeCompleto": "Juca Silva"
-    },
-    {
       "id": 7,
       "cidadeId": 1,
       "email": "maria@gmail.com",
