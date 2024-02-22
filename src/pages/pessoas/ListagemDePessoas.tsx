@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   Icon,
   IconButton,
@@ -23,6 +23,8 @@ import { FerramentasDaListagem } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { useDebounce } from "../../shared/hooks";
 import { Environment } from "../../shared/environment";
+import { toast } from "react-toastify";
+import { confirmAlert } from "react-confirm-alert";
 
 export const ListagemDePessoas: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -61,18 +63,33 @@ export const ListagemDePessoas: React.FC = () => {
   }, [busca, pagina]);
 
   const handleDelete = (id: number) => {
-    if (confirm("Realmente deseja apagar?")) {
-      PessoasService.deleteById(id).then((result) => {
-        if (result instanceof Error) {
-          alert(result.message);
-        } else {
-          setRows((oldRows) => [
-            ...oldRows.filter((oldRow) => oldRow.id !== id),
-          ]);
-          alert("Registro apagado com sucesso!");
-        }
-      });
-    }
+    confirmAlert({
+      title: "Confirmação",
+      message: "Deseja deletar o registro",
+      buttons: [
+        {
+          label: "Sim",
+          onClick: () => {
+            PessoasService.deleteById(id).then((result) => {
+              if (result instanceof Error) {
+                toast.error(result.message);
+              } else {
+                setRows((oldRows) => [
+                  ...oldRows.filter((oldRow) => oldRow.id !== id),
+                ]);
+                toast.success("Registro apagado com sucesso!");
+              }
+            });
+          },
+        },
+        {
+          label: "Não",
+          onClick: () => {
+            null;
+          },
+        },
+      ],
+    });
   };
 
   return (
