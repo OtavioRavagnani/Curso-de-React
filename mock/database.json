@@ -2,9 +2,9 @@
   "pessoas": [
     {
       "id": 3,
-      "cidadeId": 1,
-      "email": "otavio@gmail.com",
-      "nomeCompleto": "Otavio Ravagnani"
+      "nomeCompleto": "Otavio-Ravagnani",
+      "email": "otavioravagnani01@gmail.com",
+      "cidadeId": "1"
     },
     {
       "id": 4,
