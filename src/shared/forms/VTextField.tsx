@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { TextField, TextFieldProps } from "@mui/material";
 import { useField } from "@unform/core";
@@ -26,8 +27,14 @@ export const VTextField: React.FC<TVTextFieldProps> = ({ name, ...rest }) => {
       helperText={error}
       defaultValue={defaultValue}
       value={value}
-      onChange={(e) => setValue(e.target.value)}
-      onKeyDown={() => (error ? clearError() : undefined)}
+      onChange={(e) => {
+        setValue(e.target.value);
+        rest.onChange?.(e);
+      }}
+      onKeyDown={(e) => {
+        error && clearError();
+        rest.onKeyDown?.(e);
+      }}
     />
   );
 };

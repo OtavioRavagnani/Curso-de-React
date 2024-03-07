@@ -82,7 +82,7 @@ export const MenuLateral: React.FC<IAppThemeProviderProps> = ({
           >
             <Avatar
               sx={{ height: theme.spacing(12), width: theme.spacing(12) }}
-              src="https://scontent.frao2-1.fna.fbcdn.net/v/t39.30808-1/297526917_3229049594079658_8998610346560140117_n.jpg?stp=dst-jpg_p320x320&_nc_cat=102&ccb=1-7&_nc_sid=5740b7&_nc_eui2=AeEkjBPC9BAc-7IaVnfIQH_yKG61cP40pIEobrVw_jSkgXb6Ov0Y6BdJAfr34G5Rwq6L3AJF2cPRZ3A40px6dOTB&_nc_ohc=HrBD7Bs2JUIAX8QycPq&_nc_ht=scontent.frao2-1.fna&oh=00_AfDbK2hIa-5xjtuONzgHa3FYh5sIP3XCFAvW7udaPitjdQ&oe=65A46FDC"
+              src="https://scontent.frao2-1.fna.fbcdn.net/v/t39.30808-1/297526917_3229049594079658_8998610346560140117_n.jpg?stp=dst-jpg_p320x320&_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEkjBPC9BAc-7IaVnfIQH_yKG61cP40pIEobrVw_jSkgXb6Ov0Y6BdJAfr34G5Rwq6L3AJF2cPRZ3A40px6dOTB&_nc_ohc=KfOVHGKpOh8AX-eXI2K&_nc_ht=scontent.frao2-1.fna&oh=00_AfC18XeCG7UpG7ePMgk5hcc6TNAf3Iw-iaBaWQIJSBsgbQ&oe=65ED9B1C"
             />
           </Box>
 
